@@ -14,11 +14,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by ujujzk on 05.07.2017
- * Softensy Digital Studio
- * softensiteam@gmail.com
- */
+
 
 @Module
 public class DataModule {
