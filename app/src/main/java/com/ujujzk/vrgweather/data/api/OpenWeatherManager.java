@@ -25,24 +25,24 @@ public class OpenWeatherManager implements WeatherManager {
     private static final String OPEN_WEATHER_UNITS = "metric";
     private static final String OPEN_WEATHER_APP_ID = BuildConfig.OPEN_WEATHER_APP_ID;
 
-
-
+    private Application app;
 
 
     private static volatile OpenWeatherManager instance;
 
-    private OpenWeatherManager() {
+    private OpenWeatherManager(Application app) {
         //Prevent form the reflection api.
         if (instance != null) {
-            throw new AssertionError("Use getInstance() method to get the single instance of this class.");
+            throw new AssertionError("Use getInst() method to get the single instance of this class.");
         }
+        this.app = app;
     }
 
-    public static OpenWeatherManager getInst() {
+    public static OpenWeatherManager getInst(Application app) {
         if (instance == null) {
             synchronized (OpenWeatherManager.class) {
                 if (instance == null) {
-                    instance = new OpenWeatherManager();
+                    instance = new OpenWeatherManager(app);
                 }
             }
         }
@@ -70,7 +70,7 @@ public class OpenWeatherManager implements WeatherManager {
 
     private OkHttpClient provideHttpClient(@IntRange(from = 0, to = 1000) int waitingTime) {
         return new OkHttpClient.Builder()
-//                .addInterceptor(new ChuckInterceptor(app.getApplicationContext()))
+                .addInterceptor(new ChuckInterceptor(app.getApplicationContext()))
                 .connectTimeout(waitingTime, TimeUnit.SECONDS)
                 .readTimeout(waitingTime, TimeUnit.SECONDS)
                 .build();

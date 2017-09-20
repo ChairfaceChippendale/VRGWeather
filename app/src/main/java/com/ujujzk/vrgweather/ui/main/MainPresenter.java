@@ -2,20 +2,21 @@ package com.ujujzk.vrgweather.ui.main;
 
 
 import com.orhanobut.logger.Logger;
+import com.ujujzk.vrgweather.App;
 import com.ujujzk.vrgweather.data.repository.WeatherRepository;
 import com.ujujzk.vrgweather.data.repository.WeatherRepositoryImpl;
 
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import javax.inject.Inject;
 
 public class MainPresenter implements MainContract.Presenter {
 
     private MainContract.View view;
+    @Inject
     WeatherRepository repository;
 
     public MainPresenter(MainContract.View view) {
+        App.getDataComponent().inject(this);
         this.view = view;
-        repository = WeatherRepositoryImpl.getInstance();
 
     }
 

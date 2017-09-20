@@ -12,6 +12,8 @@ import com.ujujzk.vrgweather.model.openweather.Weather;
 
 import java.util.Calendar;
 
+import javax.inject.Inject;
+
 import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -26,7 +28,9 @@ public class WeatherRepositoryImpl implements WeatherRepository {
 
     private static final long MAX_TIME_DIFF_HOURS = 3L;
 
+    @Inject
     WeatherManager weatherManager;
+    @Inject
     WeatherStorage weatherStorage;
 
 
@@ -35,13 +39,12 @@ public class WeatherRepositoryImpl implements WeatherRepository {
     private WeatherRepositoryImpl() {
         //Prevent form the reflection api.
         if (instance != null) {
-            throw new AssertionError("Use getInstance() method to get the single instance of this class.");
+            throw new AssertionError("Use getInst() method to get the single instance of this class.");
         }
-        weatherManager = OpenWeatherManager.getInst();
-        weatherStorage = RealmWeatherStorage.getInst();
+        App.getDataComponent().inject(this);
     }
 
-    public static WeatherRepositoryImpl getInstance() {
+    public static WeatherRepositoryImpl getInst() {
         if (instance == null) {
             synchronized (OpenWeatherManager.class) {
                 if (instance == null) {

@@ -22,7 +22,7 @@ public class RealmWeatherStorage implements WeatherStorage {
     private RealmWeatherStorage() {
         //Prevent form the reflection api.
         if (instance != null) {
-            throw new AssertionError("Use getInstance() method to get the single instance of this class.");
+            throw new AssertionError("Use getInst() method to get the single instance of this class.");
         }
     }
 
