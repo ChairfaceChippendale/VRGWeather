@@ -61,6 +61,18 @@ ext {
             assertj:            "org.assertj:assertj-core:$assertJVer"
     ]
 
+    gatewayDeps = [
+            javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVer",
+            javaxInject:        "javax.inject:javax.inject:$javaxInjectVer",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVer"
+    ]
+
+    gatewayTestDeps = [
+            junit:              "junit:junit:$jUnitVer",
+            mokito:             "com.nhaarman:mockito-kotlin:$mockitoKotlinVer",
+            assertj:            "org.assertj:assertj-core:$assertJVer"
+    ]
+
     uiDeps = [
             androidSupportV4:   "com.android.support:support-v4:${supportVer}",
             androidSupportV13:  "com.android.support:support-v13:${supportVer}",

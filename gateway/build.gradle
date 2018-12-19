@@ -1,0 +1,17 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":domain")
+
+    implementation domainDeps.javaxAnnotation
+    implementation domainDeps.javaxInject
+    implementation domainDeps.rxKotlin
+
+    implementation domainTestDeps.junit
+    implementation domainTestDeps.mokito
+    implementation domainTestDeps.assertj
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
