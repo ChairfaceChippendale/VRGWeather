@@ -49,16 +49,46 @@ ext {
     runnerVer = '0.5'
 
 
-    domainDependencies = [
+    domainDeps = [
             javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVer",
             javaxInject:        "javax.inject:javax.inject:$javaxInjectVer",
             rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVer"
     ]
 
-    domainTestDependencies = [
+    domainTestDeps = [
             junit:              "junit:junit:$jUnitVer",
             mokito:             "com.nhaarman:mockito-kotlin:$mockitoKotlinVer",
             assertj:            "org.assertj:assertj-core:$assertJVer"
+    ]
+
+    uiDeps = [
+            androidSupportV4:   "com.android.support:support-v4:${supportVer}",
+            androidSupportV13:  "com.android.support:support-v13:${supportVer}",
+            appCompatV7:        "com.android.support:appcompat-v7:${supportVer}",
+            supportRecyclerView:"com.android.support:recyclerview-v7:${supportVer}",
+            supportDesign:      "com.android.support:design:${supportVer}",
+            androidAnnotations: "com.android.support:support-annotations:${supportVer}",
+            constraint:         "com.android.support.constraint:constraint-layout:${constraintVer}",
+
+            kotlin:             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVer}",
+
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVer}",
+            dagger:             "com.google.dagger:dagger:${daggerVer}",
+            daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVer}",
+            daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVer}",
+
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVer}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVer}",
+            glassfishAnnotation: "org.glassfish:javax.annotation:${glassfishAnnotationVer}",
+
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:${rxKotlinVer}",
+            rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVer}",
+
+            picasso:            "com.squareup.picasso:picasso:${picassoVer}",
+
+            archRuntime:        "android.arch.lifecycle:runtime:${archCompVer}",
+            archExtensions:     "android.arch.lifecycle:extensions:${archCompVer}",
+            archCompiler:       "android.arch.lifecycle:compiler:${archCompVer}"
     ]
 
     presentationDependencies = [
