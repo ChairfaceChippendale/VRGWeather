@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">VRGWeather</string>
-    <string name="main_act_tab_search">Search</string>
-    <string name="main_act_tab_cities">Cities</string>
-    <string name="main_act_title">Weather</string>
+
 </resources>

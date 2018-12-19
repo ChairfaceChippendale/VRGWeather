@@ -2,9 +2,6 @@ package com.ujujzk.vrgweather;
 
 import android.app.Application;
 
-import com.orhanobut.logger.LogLevel;
-import com.orhanobut.logger.Logger;
-import com.singhajit.sherlock.core.Sherlock;
 import com.ujujzk.vrgweather.di.DaggerDataComponent;
 import com.ujujzk.vrgweather.di.DataComponent;
 import com.ujujzk.vrgweather.di.DataModule;
@@ -33,12 +30,7 @@ public class App extends Application {
                 .dataModule(new DataModule(this))
                 .build();
 
-        if (!BuildConfig.DEBUG) {
-            Logger.init().logLevel(LogLevel.NONE);
-        } else {
-            Sherlock.init(this);
-            Sherlock.getInstance().getAllCrashes();
-        }
+
     }
 
     public static DataComponent getDataComponent() {
