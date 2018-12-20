@@ -1,1 +1,7 @@
-include ':app', ':ui', ':domain', ':gateway'
+include ':app'
+include ':ui'
+include ':domain'
+project(':domain').projectDir = new File(rootDir, 'domain')
+include ':gateway'
+include ':storage'
+

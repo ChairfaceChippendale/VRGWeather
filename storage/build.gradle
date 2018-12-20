@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    def globalConf = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConf["androidCompileSdk"]
+
+    defaultConfig {
+        minSdkVersion globalConf["androidMinSdk"]
+        targetSdkVersion globalConf["androidTargetSdk"]
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "co.joebirch.mobile_ui.test.TestRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            jvmArgs '-noverify'
+        }
+    }
+
+}
+
+kapt {
+    correctErrorTypes = true
+    generateStubs = true
+}
+
+dependencies {
+    def storageDeps = rootProject.ext.storageDeps
+    def storageTestDeps = rootProject.ext.storageTestDeps
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':gateway')
+//    implementation project(":domain")
+
+    implementation storageDeps.javaxAnnotation
+    implementation storageDeps.javaxInject
+
+    implementation storageDeps.rxKotlin
+    implementation storageDeps.roomRuntime
+    implementation storageDeps.roomCompiler
+    implementation storageDeps.roomRxJava
+
+    implementation storageTestDeps.junit
+    implementation storageTestDeps.mokito
+    implementation storageTestDeps.assertj
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

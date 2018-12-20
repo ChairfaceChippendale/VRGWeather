@@ -1,16 +1,14 @@
 package com.ujujzk.domain.gateway
 
-import com.ujujzk.domain.model.City
+import com.ujujzk.domain.model.CityWeather
 import io.reactivex.Observable
 import io.reactivex.Single
 
 interface WeatherGateway {
 
-    fun getWeather(city: String): Single<City>
+    fun findWeather(cityName: String): Single<CityWeather>
 
-    fun getWeatherRemote(cityName: String): Single<City>
+    fun getWeather(cityId: Long): Single<CityWeather>
 
-    fun getWeatherLocal(cityName: String): Single<City>
-
-    fun getCitiesLocal(): Observable<City>
+    fun getCitiesLocal(): Single<List<CityWeather>>
 }

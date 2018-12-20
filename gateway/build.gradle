@@ -1,16 +1,19 @@
 apply plugin: 'kotlin'
 
 dependencies {
+    def gateDeps = rootProject.ext.gatewayDeps
+    def gateTestDeps = rootProject.ext.gatewayTestDeps
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":domain")
 
-    implementation domainDeps.javaxAnnotation
-    implementation domainDeps.javaxInject
-    implementation domainDeps.rxKotlin
+    implementation gateDeps.javaxAnnotation
+    implementation gateDeps.javaxInject
+    implementation gateDeps.rxKotlin
 
-    implementation domainTestDeps.junit
-    implementation domainTestDeps.mokito
-    implementation domainTestDeps.assertj
+    implementation gateTestDeps.junit
+    implementation gateTestDeps.mokito
+    implementation gateTestDeps.assertj
 }
 
 sourceCompatibility = "7"

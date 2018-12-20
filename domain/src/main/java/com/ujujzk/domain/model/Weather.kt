@@ -1,6 +1,8 @@
 package com.ujujzk.domain.model
 
 data class Weather(
+        val id: Long,
+
         val dateStr: String,
         val date: Long,
         val description: String,

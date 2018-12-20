@@ -3,7 +3,7 @@ package com.ujujzk.domain.interactor.weather
 import com.ujujzk.domain.executor.PostExecutionThread
 import com.ujujzk.domain.gateway.WeatherGateway
 import com.ujujzk.domain.interactor.SingleUseCase
-import com.ujujzk.domain.model.City
+import com.ujujzk.domain.model.CityWeather
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 
@@ -12,9 +12,9 @@ class GetWeatherUseCase
         postExecutionThread: PostExecutionThread,
         disposables: CompositeDisposable,
         private val weatherGateway: WeatherGateway
-) : SingleUseCase<City, GetWeatherUseCase.Params>(postExecutionThread, disposables){
+) : SingleUseCase<CityWeather, GetWeatherUseCase.Params>(postExecutionThread, disposables){
 
-    override fun build(params: Params): Single<City> = weatherGateway.getWeather(params.cityName)
+    override fun build(params: Params): Single<CityWeather> = weatherGateway.getWeather(params.cityName)
 
     class Params (val cityName: String){
         companion object {

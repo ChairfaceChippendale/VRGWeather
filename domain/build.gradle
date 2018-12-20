@@ -4,8 +4,6 @@ dependencies {
     def domainDeps = rootProject.ext.domainDeps
     def domainTestDeps = rootProject.ext.domainTestDeps
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation domainDeps.javaxAnnotation
     implementation domainDeps.javaxInject
     implementation domainDeps.rxKotlin

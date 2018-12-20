@@ -32,7 +32,7 @@ ext {
 
     //arch
     archCompVer = '1.1.1'
-    roomVer = '1.0.0'
+    roomVer = '1.1.1'
 
     //tests
     jUnitVer = '4.12'
@@ -72,6 +72,24 @@ ext {
             mokito:             "com.nhaarman:mockito-kotlin:$mockitoKotlinVer",
             assertj:            "org.assertj:assertj-core:$assertJVer"
     ]
+
+    storageDeps = [
+            javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVer",
+            javaxInject:        "javax.inject:javax.inject:$javaxInjectVer",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVer",
+            roomRuntime:        "android.arch.persistence.room:runtime:${roomVer}",
+            roomCompiler:       "android.arch.persistence.room:compiler:${roomVer}",
+            roomRxJava:         "android.arch.persistence.room:rxjava2:${roomVer}"
+    ]
+
+    storageTestDeps = [
+            junit:              "junit:junit:$jUnitVer",
+            mokito:             "com.nhaarman:mockito-kotlin:$mockitoKotlinVer",
+            assertj:            "org.assertj:assertj-core:$assertJVer"
+    ]
+
+
+
 
     uiDeps = [
             androidSupportV4:   "com.android.support:support-v4:${supportVer}",
@@ -126,9 +144,9 @@ ext {
             archRuntime:        "android.arch.lifecycle:runtime:${archCompVer}",
             archExtensions:     "android.arch.lifecycle:extensions:${archCompVer}",
             archCompiler:       "android.arch.lifecycle:compiler:${archCompVer}",
-            roomRuntime:        "android.arch.persistence.room:runtime:${archCompVer}",
-            roomCompiler:       "android.arch.persistence.room:compiler:${archCompVer}",
-            roomRxJava:         "android.arch.persistence.room:rxjava2:${archCompVer}",
+            roomRuntime:        "android.arch.persistence.room:runtime:${roomVer}",
+            roomCompiler:       "android.arch.persistence.room:compiler:${roomVer}",
+            roomRxJava:         "android.arch.persistence.room:rxjava2:${roomVer}",
     ]
 
     presentationTestDependencies = [
