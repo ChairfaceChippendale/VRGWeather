@@ -88,7 +88,22 @@ ext {
             assertj:            "org.assertj:assertj-core:$assertJVer"
     ]
 
+    networkDeps = [
+            javaxAnnotation:    "javax.annotation:jsr250-api:$javaxAnnotationVer",
+            javaxInject:        "javax.inject:javax.inject:$javaxInjectVer",
+            dagger:             "com.google.dagger:dagger:${daggerVer}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVer}",
+            rxKotlin:           "io.reactivex.rxjava2:rxkotlin:$rxKotlinVer",
+            retrofit:           "com.squareup.retrofit2:retrofit:$retrofitVer",
+            retrofitGson:       "com.squareup.retrofit2:converter-gson:$retrofitVer",
+            retrofitRx:         "com.squareup.retrofit2:adapter-rxjava2:$retrofitVer"
+    ]
 
+    networkTestDeps = [
+            junit:              "junit:junit:$jUnitVer",
+            mokito:             "com.nhaarman:mockito-kotlin:$mockitoKotlinVer",
+            assertj:            "org.assertj:assertj-core:$assertJVer"
+    ]
 
 
     uiDeps = [

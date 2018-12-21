@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     def globalConf = rootProject.extensions.getByName("ext")
@@ -14,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "co.joebirch.mobile_ui.test.TestRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -39,25 +38,26 @@ kapt {
 }
 
 dependencies {
-    def storageDeps = rootProject.ext.storageDeps
-    def storageTestDeps = rootProject.ext.storageTestDeps
+    def netDeps = rootProject.ext.networkDeps
+    def netTestDeps = rootProject.ext.networkTestDeps
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':gateway')
 
-    implementation storageDeps.javaxAnnotation
-    implementation storageDeps.javaxInject
+    implementation netDeps.javaxAnnotation
+    implementation netDeps.javaxInject
 
-    implementation storageDeps.rxKotlin
+    implementation netDeps.dagger
+    kapt netDeps.daggerCompiler
 
-    implementation storageDeps.roomRuntime
-    implementation storageDeps.roomCompiler
-    implementation storageDeps.roomRxJava
+    implementation netDeps.rxKotlin
+    
+    implementation netDeps.retrofit
+    implementation netDeps.retrofitGson
+    implementation netDeps.retrofitRx
 
-    testImplementation storageTestDeps.junit
-    implementation storageTestDeps.mokito
-    implementation storageTestDeps.assertj
+
+    testImplementation netTestDeps.junit
+    implementation netTestDeps.mokito
+    implementation netTestDeps.assertj
 }
-
-sourceCompatibility = "7"
-targetCompatibility = "7"

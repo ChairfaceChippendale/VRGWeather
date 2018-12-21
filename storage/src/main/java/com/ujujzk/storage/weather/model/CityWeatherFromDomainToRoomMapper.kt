@@ -3,7 +3,7 @@ package com.ujujzk.storage.weather.model
 import com.ujujzk.domain.model.CityWeather
 import io.reactivex.functions.Function
 
-class CityWeatherFromDomainToRoom : Function<CityWeather, CityAndWeatherRoom> {
+class CityWeatherFromDomainToRoomMapper : Function<CityWeather, CityAndWeatherRoom> {
 
     override fun apply(cityWeather: CityWeather): CityAndWeatherRoom {
         return CityAndWeatherRoom(

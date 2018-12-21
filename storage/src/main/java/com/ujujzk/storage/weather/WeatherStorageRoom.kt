@@ -2,7 +2,7 @@ package com.ujujzk.storage.weather
 
 import com.ujujzk.domain.model.CityWeather
 import com.ujujzk.gateway.weather.sources.WeatherStorage
-import com.ujujzk.storage.weather.model.CityWeatherFromDomainToRoom
+import com.ujujzk.storage.weather.model.CityWeatherFromDomainToRoomMapper
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -11,7 +11,7 @@ class WeatherStorageRoom
 
     override fun putCityWeather(cityWeather: CityWeather) : Single<String> {
         return Single.just(cityWeather)
-                .map ( CityWeatherFromDomainToRoom() )
+                .map ( CityWeatherFromDomainToRoomMapper() )
                 .map{f ->
                     cityDao.insert(f.city)
                     weatherDao.insertAll(f.weather)
@@ -21,7 +21,7 @@ class WeatherStorageRoom
     }
 
     override fun getAllCityWeather(): Single<List<CityWeather>> {
-        
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getCityWeather(cityId: Long): Single<CityWeather> {

@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':networking'
 include ':ui'
 include ':domain'
 project(':domain').projectDir = new File(rootDir, 'domain')
